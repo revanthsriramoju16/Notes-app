@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 10px;
+  background: #f9f9f9;
+}
+h1 { text-align: center; }
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+input, textarea {
+  padding: 8px;
+  font-size: 1rem;
+}
+button {
+  padding: 8px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover { background: #0056b3; }
+.note {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.note h3 { margin: 0 0 5px; }
+.note button {
+  background: red;
+  margin-top: 5px;
+}
