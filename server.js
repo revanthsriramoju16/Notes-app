@@ -8,14 +8,12 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public")); // serve frontend files
+app.use(express.static("public")); 
 
-// Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ Connected to MongoDB Atlas"))
-  .catch(err => console.error("❌ MongoDB connection error:", err));
+  .then(() => console.log(" Connected to MongoDB Atlas"))
+  .catch(err => console.error(" MongoDB connection error:", err));
 
-// Note Schema
 const noteSchema = new mongoose.Schema({
   title: String,
   content: String,
@@ -23,7 +21,6 @@ const noteSchema = new mongoose.Schema({
 });
 const Note = mongoose.model("Note", noteSchema);
 
-// Routes
 app.get("/api/notes", async (req, res) => {
   const notes = await Note.find().sort({ createdAt: -1 });
   res.json(notes);
@@ -40,6 +37,5 @@ app.delete("/api/notes/:id", async (req, res) => {
   res.json({ message: "Deleted" });
 });
 
-// Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(` Server running on http://localhost:${PORT}`));
